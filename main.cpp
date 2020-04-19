@@ -1,36 +1,37 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <cstring>
 #include <string>
+#include <sstream>
 
-#include "orders.h"
-// Below is for header file before they're moved:
+#include "prototypes1.h"
 
 int main(int argc, char **argv)
 {
-	// 1. Get cli args - three files
 	// - ./RAT Customers.txt Parts.txt Builders.txt Output-file
 	// code:Part name:Minimum:Maximum:Complexity
-	//
-/*	
-	std::cout << argc << " Args given" << std::endl;
-	for (int i = 0; i < argc; ++i)
-		std::cout << argv[i] << std::endl;
-*/
 
 	print_args(argc, argv);
 
-	char *customers_orders_filename = argv[1];
+	std::vector<std::string> customer_order_data = destructure_data_from_file(argv[1]);
+	std::vector<std::string> parts_data = destructure_data_from_file(argv[2]);
+	std::vector<std::string> builder_data = destructure_data_from_file(argv[3]);
 
-        destructure_data_from_file(customers_orders_filename);
+	for (auto cod : customer_order_data)
+		std::cout << cod << std::endl;
+	for (auto pd : parts_data)
+		std::cout << pd << std::endl;
 
-	return 0;
+	// std::vector<Customer> customer_orders = make_orders(order_data);
+	// std::vector<Part> parts = make_parts(parts_data);
+	std::vector<Builder> builders = make_builders(builder_data);
 
+	print_all_builders(builders);
 
-	//    1. Check files were imported without error
-	//    2. Check file content means format requirements
 	//    3. Go to 2 or report error to stdout and abort
 	// 2. stdout >> Print-out the contents of three input files
+	
 	// 3. Process customer order in the order given in the file
 	//    for each customer_order
 	//      - std::cout << customer name << order name << builder name << std::endl;
@@ -80,4 +81,6 @@ int main(int argc, char **argv)
 	// - all_parts_qty + builder_variability + (CONST_VARIABILITY = 5)
 	//
 	// 
+
+	return 0;
 }
