@@ -126,6 +126,14 @@ bool check_valid_builder(Builder &builder_to_check)
 	return is_valid_data;
 }
 
+Customer create_customer_order(std::string &customer_order_line)
+{
+}
+
+Part create_part(std::string &part_line)
+{
+}
+
 Builder create_builder(std::string &builder_line)
 {
 	Builder new_builder;
