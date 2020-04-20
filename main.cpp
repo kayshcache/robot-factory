@@ -7,28 +7,60 @@
 
 #include "prototypes1.h"
 
+int get_random_in_range(int min, int max)
+{
+	return 0;
+}
+
+void process_order(Customer order)
+{
+	std::string cust = order.customer_name;
+	std::string proj = order.project_name;
+	std::string prts = order.robot_parts;
+	std::string bldr = order.assigned_builder.name;
+	int complexity = order.robot_complexity;
+	int variability = order.robot_variability;
+
+	std::cout << "Customer Name: " << cust << " - ";
+	std::cout << "Project: " << proj << " - ";
+	std::cout << "Parts: " << prts << " - ";
+	std::cout << "Complex: " << complexity << " - ";
+	std::cout << "Variability: " << variability << " - ";
+	std::cout << "Builder: " << bldr << "." << std::endl;
+	
+}
+
 int main(int argc, char **argv)
 {
 	// - ./RAT Customers.txt Parts.txt Builders.txt Output-file
 	// code:Part name:Minimum:Maximum:Complexity
 
-	print_args(argc, argv);
+	// print_args(argc, argv);
 
+	// for (auto cod : customer_order_data)
+	//	std::cout << cod << std::endl;
+	// for (auto pd : parts_data)
+	//	std::cout << pd << std::endl;
+
+	/* GET RAW DATA FROM FILES */
 	std::vector<std::string> customer_order_data = destructure_data_from_file(argv[1]);
 	std::vector<std::string> parts_data = destructure_data_from_file(argv[2]);
 	std::vector<std::string> builder_data = destructure_data_from_file(argv[3]);
-
-	for (auto cod : customer_order_data)
-		std::cout << cod << std::endl;
-	for (auto pd : parts_data)
-		std::cout << pd << std::endl;
-
-	// std::vector<Customer> customer_orders = make_orders(order_data);
-	// std::vector<Part> parts = make_parts(parts_data);
+	
+	/* ORGANIZE DATA INTO VECTORS OF STRUCTS */
 	std::vector<Builder> builders = make_builders(builder_data);
+	std::vector<Customer> customer_orders = make_orders(customer_order_data, builders);
+	std::vector<Part> parts = make_parts(parts_data);
 
-	print_all_builders(builders);
+	/* PROCESS ORDERS */
+	for (Customer order : customer_orders) {
+		process_order(order);
+	}
 
+
+	// print_all_builders(builders);
+
+	
 	//    3. Go to 2 or report error to stdout and abort
 	// 2. stdout >> Print-out the contents of three input files
 	

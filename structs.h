@@ -1,12 +1,23 @@
+struct Builder {
+	// TODO:
+	//   - No more than 5 builders in one run
+	//   - Check format
+	std::string name;
+	int ability;
+	int variability;
+};
+
 struct Customer {
 	// TODO:
 	//   - Check format,
 	//   - No more than 10 orders in one run
 	// example: Carly:Ettin:ABCCCCE
-	// format: (cstring)customer-name:(cstring)project-name:(cstring)robot-parts
-	const char *customer_name;
-	const char *project_name;
-	const char *robot_parts;
+	std::string customer_name;
+	std::string project_name;
+	std::string robot_parts;
+	Builder assigned_builder;
+	int robot_complexity;
+	int robot_variability;
 };
 
 struct Part {
@@ -19,12 +30,3 @@ struct Part {
 	int max_possible;
 	int complexity;
 };
-struct Builder {
-	// TODO:
-	//   - No more than 5 builders in one run
-	//   - Check format
-	std::string name;
-	int ability;
-	int variability;
-};
-
