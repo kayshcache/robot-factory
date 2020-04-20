@@ -7,11 +7,6 @@
 
 #include "prototypes1.h"
 
-int get_random_in_range(int min, int max)
-{
-	return 0;
-}
-
 void process_order(Customer order)
 {
 	std::string cust = order.customer_name;
@@ -27,27 +22,23 @@ void process_order(Customer order)
 	std::cout << "Complex: " << complexity << " - ";
 	std::cout << "Variability: " << variability << " - ";
 	std::cout << "Builder: " << bldr << "." << std::endl;
+
+
 	
 }
 
 int main(int argc, char **argv)
 {
 	// - ./RAT Customers.txt Parts.txt Builders.txt Output-file
-	// code:Part name:Minimum:Maximum:Complexity
 
 	// print_args(argc, argv);
-
-	// for (auto cod : customer_order_data)
-	//	std::cout << cod << std::endl;
-	// for (auto pd : parts_data)
-	//	std::cout << pd << std::endl;
 
 	/* GET RAW DATA FROM FILES */
 	std::vector<std::string> customer_order_data = destructure_data_from_file(argv[1]);
 	std::vector<std::string> parts_data = destructure_data_from_file(argv[2]);
 	std::vector<std::string> builder_data = destructure_data_from_file(argv[3]);
 	
-	/* ORGANIZE DATA INTO VECTORS OF STRUCTS */
+	/* ORGANIZE RAW DATA INTO VECTORS OF STRUCTS */
 	std::vector<Builder> builders = make_builders(builder_data);
 	std::vector<Customer> customer_orders = make_orders(customer_order_data, builders);
 	std::vector<Part> parts = make_parts(parts_data);
