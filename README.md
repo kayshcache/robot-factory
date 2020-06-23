@@ -3,10 +3,10 @@
 ### Overview
 This project is implemented using procedural programming. The overall program follows the processing of customer orders for robots from a robot construction company : RAT (Robots As Toys).
 ## General code notes
-Your app is organised into:
-1. A driver file containing your main() function.
-2. A header file containing the prototypes for the functions you write.
-3. An implementation file containing the implementations of your functions.
+The app is organised into:
+1. A driver file containing a main() function.
+2. A header file containing the prototypes for the functions.
+3. An implementation file containing the implementations of the functions.
 No classes or function templates are used. It does not leak memory.
 The main() function makes it clear what is going on. Other than the initial command line input, the program runs without user output.
 ## Run structure
