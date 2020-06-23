@@ -1,11 +1,7 @@
-- [Lab work](https://github.com/kayshcache/cpp-labs-all)
-### School of Computing & Information Technology
-# CSCI251/CSCI851 Advanced Programming
-## Autumn 2020
-### Assignment 1 (Worth 12%)
-Due 11:55pm Monday 20 th April 2020. (Start of Week Six)
+# Learning C++ Project 1
+## Robot Factory
 ### Overview
-This assignment is to be implemented using procedural programming. The overall program should follow the processing of customer orders for robots from a robot construction company : RAT (Robots As Toys).
+This project is to be implemented using procedural programming. The overall program should follow the processing of customer orders for robots from a robot construction company : RAT (Robots As Toys).
 ## General code notes
 These are some general rules about what you should and shouldn’t do.
 1. Your assignment should be organised into:
